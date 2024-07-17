@@ -1,5 +1,16 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
+### _NOTE: MYPY IS BARKING JUST BECAUSE OF TESTS, IT SHOULD BE THAT WAY FOR NOW_
+
+## version 2.2:
+    
+    //Made for <jul, 17> tasks//
+    
+    > Function get_time is available
+        at new module widget.py
+        (there is a docstring description)
+    > See some new features tests at main.py
+
 ## version 2.1:
 
     //Made for <jul, 17> tasks//
