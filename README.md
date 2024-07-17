@@ -1,5 +1,14 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
+## version 2.1:
+
+    //Made for <jul, 17> tasks//
+
+    > Function mask_account_card is available
+        at new module widget.py
+        (there is a docstring description)
+    > See some new features tests at main.py
+
 ## version 2.0:
 
     //Made for <jul, 17> tasks//
