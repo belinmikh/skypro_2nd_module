@@ -13,14 +13,14 @@ def mask_account_card(initial: str) -> str | None:
     if not isinstance(initial, str):
         return None
     for card in CARDS:
-        if initial.startswith(card):
+        if initial.startswith(card + ' '):
             initial = initial.replace(card, "").strip()
             to_return = get_mask_card_number(initial)
             if to_return is not None:
                 to_return = card + " " + to_return
             return to_return
     for account in ACCOUNTS:
-        if initial.startswith(account):
+        if initial.startswith(account + ' '):
             initial = initial.replace(account, "").strip()
             to_return = get_mask_account(initial)
             if to_return is not None:

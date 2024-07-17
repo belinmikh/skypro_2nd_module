@@ -33,6 +33,7 @@ def main() -> None:
         "Visa Platinum 8990922113665229",
         "Visa Gold 5999414228426353",
         "Счет 73654108430135874305",
+        "Счет73654108430135874305"
     ]
     for i in mask_account_card_test:
         print(f"(*) {type(i)}: {i} --> {mask_account_card(i)}")
