@@ -1,6 +1,13 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
-### _NOTE: MYPY IS BARKING JUST BECAUSE OF TESTS, IT SHOULD BE THAT WAY FOR NOW_
+## version 2.3:
+
+    //Made for experimental issues//
+
+    Yes, we'll have pytest soon, but it was horrible to see mypy crying, so:
+
+    > Added function for testing other functions
+        (functest at main.py)
 
 ## version 2.2:
     
