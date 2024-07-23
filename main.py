@@ -87,8 +87,8 @@ def main() -> None:
             print_iterable(sort_by_date(i))
             print()
 
-            print("(*) sort_by_date(data, reverse=True) --> ", end="")
-            print_iterable(sort_by_date(i, reverse=True))
+            print("(*) sort_by_date(data, reverse=False) --> ", end="")
+            print_iterable(sort_by_date(i, reverse=False))
 
 
 if __name__ == "__main__":
