@@ -19,6 +19,9 @@ def filter_by_state(data: Iterable[dict], state: str = "EXECUTED") -> Iterable[d
 
 
 def sort_by_date(data: Iterable[dict], reverse: bool = True) -> Iterable[dict] | None:
+    """Returns data as list of dictionaries
+    ordered by its date and time, descending by default,
+    None if data is not a list or reverse is not bool"""
     if not isinstance(data, list):
         return None
     # calling get_date() here is for right type of date and time checking
