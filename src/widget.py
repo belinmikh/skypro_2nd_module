@@ -9,7 +9,11 @@ def mask_account_card(initial: str) -> str | None:
     """Returns masked account or card number if input matches string,
     which begins with allowed (you can change it at widget.py constants)
     account or card type and contains account or card number
-    divided from its type with space, None otherwise"""
+    divided from its type with space, None otherwise
+
+    :param initial: string with account or card type and number
+    :return: string of masked account or card number
+    """
     if not isinstance(initial, str):
         return None
     for card in CARDS:
@@ -32,7 +36,11 @@ def mask_account_card(initial: str) -> str | None:
 def get_date(date: str) -> str | None:
     """Returns 'DD.MM.YYYY' string
     if input matches '2024-03-11T02:26:18.671407' format,
-    None otherwise"""
+    None otherwise
+
+    :param date: date and time in '2024-03-11T02:26:18.671407' format string
+    :return: date in 'DD.MM.YYYY' format string
+    """
     # datetime and regexp are for wimps, ooga-booga be a junior!
     if not isinstance(date, str):
         return None
