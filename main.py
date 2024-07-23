@@ -2,12 +2,16 @@ import sys
 from typing import Any, Callable, Iterable
 
 from src.masks import get_mask_account, get_mask_card_number
-from src.processing import filter_by_state
+from src.processing import filter_by_state, sort_by_date
 from src.widget import get_date, mask_account_card
 
 
 def functest(func: Callable, test_arr: Iterable[Any]) -> None:
-    """Experimental: just playing with python"""
+    """Experimental: just playing with python
+
+    :param func: function to test (temporarily accepts only one argument)
+    :param test_arr: list of possible arguments for function
+    :return: None (just prints calling results while execution)"""
     print(f"\nTEST OF {func.__name__} FUNCTION IN PROGRESS:\n")
     for i in test_arr:
         print(f"(*) {type(i)}: {i} --> {func(i)}")
@@ -15,6 +19,11 @@ def functest(func: Callable, test_arr: Iterable[Any]) -> None:
 
 
 def print_iterable(obj: Any) -> None:
+    """Prints iterable objects as their sub-objects each at new line
+    and prints average if not iterable
+
+    :param obj: anything
+    :return: None (just prints objects in different ways)"""
     if isinstance(obj, Iterable):
         print(f"{type(obj)}:")
         for item in obj:
@@ -81,6 +90,14 @@ def main() -> None:
 
             print("(*) filter_by_state(data, 'CANCELED') --> ", end="")
             print_iterable(filter_by_state(test_case, "CANCELED"))
+            print()
+
+            print("(*) sort_by_date(data) --> ", end="")
+            print_iterable(sort_by_date(test_case))
+            print()
+
+            print("(*) sort_by_date(data, reverse=False) --> ", end="")
+            print_iterable(sort_by_date(test_case, reverse=False))
 
 
 if __name__ == "__main__":
