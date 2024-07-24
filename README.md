@@ -1,4 +1,34 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
+### initialized with poetry, to install dependencies run:
+```shell
+poetry install
+```
+### to run current tests:
+```shell
+python main.py
+```
+### to run v2.3 tests:
+```shell
+python main.py v2.3
+```
+
+## version 3.1:
+
+    //Made for <jul, 22> tasks//
+
+    > Added sort_by_date function in processing module
+        (see full description in docstring)
+    > Test of new function available at main.py
+
+## version 3.0:
+
+    //Made for <jul, 22> tasks//
+
+    > GitHub is on!
+    > Added filter_by_state function in new processing module
+        (see full description in docstring)
+    > Test of new module available at main.py
+    > Every docstring corrected
 
 ## version 2.3:
 

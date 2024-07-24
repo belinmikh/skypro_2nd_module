@@ -2,7 +2,11 @@ from typing import Union
 
 
 def get_mask_card_number(card_number: Union[str, int]) -> str | None:
-    """Returns masked card number if input matches 16 digits string or integer, None otherwise"""
+    """Returns masked card number if input matches 16 digits string or integer, None otherwise
+
+    :param card_number: 16-digit string or integer card number
+    :return: masked card number
+    """
     if isinstance(card_number, int):
         card_number = str(card_number)
     if not isinstance(card_number, str) or len(card_number) != 16 or not card_number.isdigit():
@@ -20,7 +24,11 @@ def get_mask_card_number(card_number: Union[str, int]) -> str | None:
 
 
 def get_mask_account(account: Union[str, int]) -> str | None:
-    """Returns masked account number if input matches 20 digits string or integer, None otherwise"""
+    """Returns masked account number if input matches 20 digits string or integer, None otherwise
+
+    :param account: 20-digit string or integer account number
+    :return: masked account number
+    """
     if isinstance(account, int):
         account = str(account)
     if not isinstance(account, str) or len(account) != 20 or not account.isdigit():
