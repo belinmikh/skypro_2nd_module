@@ -26,15 +26,16 @@ def filter_by_state(data: Iterable[dict], state: str = "EXECUTED") -> Iterable[d
 def sort_by_date(data: Iterable[dict], reverse: bool = True) -> Iterable[dict] | None:
     """Returns data as list of dictionaries
     ordered by its date and time, descending by default,
-    None if data is not a list or reverse is not bool
+    None if data is not a list of dictionaries with correct date or reverse is not bool
 
     :param data: list of dictionaries with operations
     :param reverse: boolean, default: True (descending)
     :return: ordered by date and time list of dictionaries with operations"""
-    if not isinstance(data, list):
+    if not isinstance(data, list) or not isinstance(reverse, bool):
         return None
+    for item in data:
+        if not isinstance(item, dict) or "date" not in item.keys() or get_date(item["date"]) is None:
+            return None
     # calling get_date() here is for right type of date and time checking
-    dict_date: Callable[[dict], str | None] = lambda elem: (
-        elem["date"] if "date" in elem.keys() and not get_date(elem["date"]) is None else None
-    )
+    dict_date: Callable[[dict], str | None] = lambda elem: elem["date"]
     return sorted(data, key=dict_date, reverse=reverse)

@@ -34,7 +34,6 @@ def print_iterable(obj: Any) -> None:
 
 
 def main() -> None:
-    # We haven't used pytest yet, so I decided to show tests here
 
     if len(sys.argv) == 2 and sys.argv[1] == "v2.3":
         card_input_test = [123, 2200240813573827, "bimbim", "123", "2200240813573827", ["ы", 1], None]
@@ -69,7 +68,7 @@ def main() -> None:
         for func, args in tests_arr.items():
             functest(func, args)
 
-    if len(sys.argv) == 1:
+    if len(sys.argv) == 2 and sys.argv[1] == 'v3.1':
         processing_test = [
             [
                 {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
