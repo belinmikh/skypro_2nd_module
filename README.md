@@ -1,22 +1,53 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
-### initialized with poetry, to install dependencies run:
+# Scroll through the commands to read the description of the versions
+#### initialized with poetry, to install dependencies run:
 ```shell
 poetry install
 ```
-### run pytest coverage check to get html report:
+#### run pytest coverage check to get html report:
 ```shell
 pytest --cov=src --cov-report=html
 ```
-### run v2.3 and v3.1 manual tests _(you can see i/o that way)_:
+### run v5.0 manual tests _(you can see i/o that way)_
+### all new functionality at the same time (don't recommend, looks like a chaos):
 ```shell
-python main.py v2.3
+python main.py v5.0
+```
+### or just one of new functions:
+```shell
+python main.py v5.0 card_number_generator
+```
+```shell
+python main.py v5.0 filter_by_currency
+```
+```shell
+python main.py v5.0 transaction_descriptions
+```
+### run v3.1 and v2.3 manual tests _(you can see i/o that way)_:
+```shell
 python main.py v3.1
 ```
+```shell
+python main.py v2.3
+```
+
+
+## version 5.0:
+
+    > added card_number_generator, filter_by_currency, transaction_descriptions
+        new functions in generators.py new module
+        (see full description in docstring)
+    > added new function extract() in tools.py new module,
+        (something tells me I'll use it again,
+        just got freak out by idea of nested
+        key existance checking and evaluating
+        values from it, bruh...
+        see full description in docstring)
 
 ## version 4.0:
 
     > added pytest and pytest-cov to dev group
-    > covered created functions with tests
+    > covered all created functions with tests
     > current coverage 100%
     > minor bug fixes
 
