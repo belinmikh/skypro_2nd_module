@@ -1,5 +1,19 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
-# Scroll through the commands to read the description of the versions
+
+## version 6.0:
+
+    > added output() function for technical usage in logging 
+    > added logging decorator at new decorators.py module, usage:
+        @log()
+        def func(...):
+            # logging to console
+            ...
+        @log('file.txt')
+        def func(...):
+            # logging to file.txt
+            ...
+
+# Scroll through the commands to read the description of previous versions
 #### initialized with poetry, to install dependencies run:
 ```shell
 poetry install
