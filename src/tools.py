@@ -21,3 +21,20 @@ def extract(dictionary: dict, _path: tuple) -> Any:
             return extract(dictionary[p], tuple(_path[1:]))
         else:
             return dictionary[p]
+
+
+def output(*args, filename: str = "", sep: str = " ", end: str = "\n") -> None:
+    """Outputs *args to console by default, to file if got filename
+
+    :param args: data to output
+    :param sep: data separator
+    :param end: ends data flow with
+    :param filename: name of file ('a' mod)"""
+    if not (isinstance(filename, str) and isinstance(sep, str) and isinstance(end, str)):
+        raise ValueError
+    if filename == "":
+        print(*args, sep=sep, end=end)
+    else:
+        with open(filename, "a", encoding="UTF-8") as file:
+            file.write(sep.join(list(map(str, args))) + end)
+    return None
