@@ -54,7 +54,7 @@ def test_extract_bad_input(test_input0: Any, test_input1: Any) -> None:
     assert extract(test_input0, test_input1) is None
 
 
-def test_output(capsys) -> None:
+def test_output(capsys: Any) -> None:
     output(1, "1", ["s", 0], {5: None}, sep=", ", end="\n")
     captured = capsys.readouterr()
     assert captured.out == "1, 1, ['s', 0], {5: None}\n"

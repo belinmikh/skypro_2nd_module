@@ -30,7 +30,7 @@ def test_log_file() -> None:
         assert file.readline() == "my_sqrt ValueError: 'Can't get real sqrt out of negative'. Inputs: -1, {}\n"
 
 
-def test_log_console(capsys) -> None:
+def test_log_console(capsys: Any) -> None:
     @log()
     def divide(a: Any, b: Any) -> float:
         if not (isinstance(a, float) or isinstance(a, int)):

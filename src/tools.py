@@ -23,7 +23,7 @@ def extract(dictionary: dict, _path: tuple) -> Any:
             return dictionary[p]
 
 
-def output(*args, filename: str = "", sep: str = " ", end: str = "\n") -> None:
+def output(*args: Any, filename: str = "", sep: str = " ", end: str = "\n") -> None:
     """Outputs *args to console by default, to file if got filename
 
     :param args: data to output
