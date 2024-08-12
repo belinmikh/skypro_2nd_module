@@ -37,5 +37,5 @@ def sort_by_date(data: Iterable[dict], reverse: bool = True) -> Iterable[dict] |
         if not isinstance(item, dict) or "date" not in item.keys() or get_date(item["date"]) is None:
             return None
     # calling get_date() here is for right type of date and time checking
-    dict_date: Callable[[dict], str | None] = lambda elem: elem["date"]
+    dict_date = lambda elem: elem["date"]
     return sorted(data, key=dict_date, reverse=reverse)
