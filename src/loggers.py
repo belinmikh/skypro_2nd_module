@@ -1,3 +1,4 @@
+import os
 import logging
 
 
@@ -16,6 +17,9 @@ def create_basic_logger(name: str) -> logging.Logger:
             name_file = name_file[: name_file.index(".")].upper() + "_" + name_file[name_file.index(".") + 1 :]
         else:
             break
+
+    if not os.path.exists('logs'):
+        os.makedirs('logs')
 
     with open(f"logs/{name_file}.log", "w"):
         pass
