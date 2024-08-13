@@ -1,5 +1,9 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
+## version 7.1:
+    
+    > reading empty file bug fixed
+
 ## version 7.0:
 
     > added convert_to_rub function in new external_api module,

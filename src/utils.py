@@ -1,4 +1,5 @@
 import json
+from json import JSONDecodeError
 
 from src.external_api import convert_to_rub
 from src.tools import extract
@@ -17,6 +18,8 @@ def read_json_local(path: str) -> list[dict]:
             if isinstance(transactions, list):
                 if sum([isinstance(x, dict) for x in transactions]) == len(transactions):
                     to_return = transactions
+    except JSONDecodeError:
+        pass
     except FileNotFoundError:
         pass
     return to_return
