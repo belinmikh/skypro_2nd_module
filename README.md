@@ -1,17 +1,16 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
-## version 6.0:
+## version 7.0:
 
-    > added output() function for technical usage in logging 
-    > added logging decorator at new decorators.py module, usage:
-        @log()
-        def func(...):
-            # logging to console
-            ...
-        @log('file.txt')
-        def func(...):
-            # logging to file.txt
-            ...
+    > added convert_to_rub function in new external_api module,
+        which provides GET-request to Exchange Rated Data APILayer
+        (you must have API key in .env, check the example)
+    > added read_json_local function in new utils module,
+        which transforms .json file with transactions
+        to list of dictionaries
+    > added get_rub_amount in utils module,
+        which gets amount out of transaction dictionary
+        and converts it to RUB amount if necessary
 
 # Scroll through the commands to read the description of previous versions
 #### initialized with poetry, to install dependencies run:
@@ -21,6 +20,21 @@ poetry install
 #### run pytest coverage check to get html report:
 ```shell
 pytest --cov=src --cov-report=html
+```
+### run v7.0 Python Console manual get-request test if you don't believe me:
+```python
+from src.external_api import convert_to_rub
+amount = convert_to_rub(20.0, 'USD')
+print(f"... but 20$ is 20$ ({amount} RUB)")
+```
+### you can even try reading json-file, that is achievable at data/operations.json:
+```python
+from src.utils import read_json_local
+A = read_json_local('data/operations.json')
+print(type(A))
+for i in range(5):
+    print(f"{type(A[i])}: {A[i]}")
+print("... and many others which I don't want to print because I'm just showing possibility")
 ```
 ### run v5.0 manual tests _(you can see i/o that way)_
 ### all new functionality at the same time (don't recommend, looks like a chaos):
@@ -45,6 +59,18 @@ python main.py v3.1
 python main.py v2.3
 ```
 
+## version 6.0:
+
+    > added output() function for technical usage in logging 
+    > added logging decorator at new decorators.py module, usage:
+        @log()
+        def func(...):
+            # logging to console
+            ...
+        @log('file.txt')
+        def func(...):
+            # logging to file.txt
+            ...
 
 ## version 5.0:
 

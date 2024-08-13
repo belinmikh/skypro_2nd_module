@@ -1,4 +1,4 @@
-from typing import Callable, Iterable
+from typing import Iterable
 
 from src.widget import get_date
 
