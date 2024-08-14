@@ -1,20 +1,8 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
-## version 7.1:
+## version 8.0:
     
-    > reading empty file bug fixed
-
-## version 7.0:
-
-    > added convert_to_rub function in new external_api module,
-        which provides GET-request to Exchange Rated Data APILayer
-        (you must have API key in .env, check the example)
-    > added read_json_local function in new utils module,
-        which transforms .json file with transactions
-        to list of dictionaries
-    > added get_rub_amount in utils module,
-        which gets amount out of transaction dictionary
-        and converts it to RUB amount if necessary
+    > added logger to masks and utils modules with logging library
 
 # Scroll through the commands to read the description of previous versions
 #### initialized with poetry, to install dependencies run:
@@ -62,6 +50,22 @@ python main.py v3.1
 ```shell
 python main.py v2.3
 ```
+
+## version 7.1:
+    
+    > reading empty file bug fixed
+
+## version 7.0:
+
+    > added convert_to_rub function in new external_api module,
+        which provides GET-request to Exchange Rated Data APILayer
+        (you must have API key in .env, check the example)
+    > added read_json_local function in new utils module,
+        which transforms .json file with transactions
+        to list of dictionaries
+    > added get_rub_amount in utils module,
+        which gets amount out of transaction dictionary
+        and converts it to RUB amount if necessary
 
 ## version 6.0:
 
