@@ -30,6 +30,11 @@ def test_read_json_local(content: Any) -> None:
 def test_read_json_local_dne() -> None:
     assert read_json_local("does_not_exist.json") == []
 
+def test_read_json_local_empty() -> None:
+    with open("test_read_json_local.json", 'w'):
+        pass
+    assert read_json_local("test_read_json_local.json") == []
+
 
 @patch("requests.request")  # I used requests.request instead of requests.get because of example at their site
 def test_get_rub_amount(mock_get: Any) -> None:
