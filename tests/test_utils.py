@@ -30,8 +30,9 @@ def test_read_json_local(content: Any) -> None:
 def test_read_json_local_dne() -> None:
     assert read_json_local("does_not_exist.json") == []
 
+
 def test_read_json_local_empty() -> None:
-    with open("test_read_json_local.json", 'w'):
+    with open("test_read_json_local.json", "w"):
         pass
     assert read_json_local("test_read_json_local.json") == []
 
