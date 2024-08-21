@@ -1,8 +1,11 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
-## version 8.0:
-    
-    > added logger to masks and utils modules with logging library
+## version 9.0:
+
+    > new functions added to fileio new module,
+        use just general function file_to_list()
+        to convert .xlsx or .csv files to list
+        of transactions in dictionaries
 
 # Scroll through the commands to read the description of previous versions
 #### initialized with poetry, to install dependencies run:
@@ -50,6 +53,10 @@ python main.py v3.1
 ```shell
 python main.py v2.3
 ```
+
+## version 8.0:
+    
+    > added logger to masks and utils modules with logging library
 
 ## version 7.1:
     
