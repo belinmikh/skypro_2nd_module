@@ -1,28 +1,34 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
-## version 9.0:
-
-    > new functions added to fileio new module,
-        use just general function file_to_list()
-        to convert .xlsx or .csv files to list
-        of transactions in dictionaries
+## version 10.0:
+    
+    > main logic created using tkinter
 
 # Scroll through the commands to read the description of previous versions
+## run main logic:
+```shell
+python main.py
+```
 #### initialized with poetry, to install dependencies run:
 ```shell
 poetry install
+```
+#### if you are not on Windows os, you should install tkinter
+#### command example for Ubuntu:
+```shell
+sudo apt-get install python3-tk
 ```
 #### run pytest coverage check to get html report:
 ```shell
 pytest --cov=src --cov-report=html
 ```
-### run v7.0 Python Console manual get-request test if you don't believe me:
+### v7.0 Python Console manual get-request test:
 ```python
 from src.external_api import convert_to_rub
 amount = convert_to_rub(20.0, 'USD')
 print(f"... but 20$ is 20$ ({amount} RUB)")
 ```
-### you can even try reading json-file, that is achievable at data/operations.json:
+### test reading json-file, that is achievable at data/operations.json:
 ```python
 from src.utils import read_json_local
 A = read_json_local('data/operations.json')
@@ -53,6 +59,13 @@ python main.py v3.1
 ```shell
 python main.py v2.3
 ```
+
+## version 9.0:
+
+    > new functions added to fileio new module,
+        use just general function file_to_list()
+        to convert .xlsx or .csv files to list
+        of transactions in dictionaries
 
 ## version 8.0:
     

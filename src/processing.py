@@ -1,6 +1,8 @@
+import re
+
 from typing import Iterable
 
-from src.widget import get_date
+from src.tools import extract
 
 
 def filter_by_state(data: Iterable[dict], state: str = "EXECUTED") -> Iterable[dict] | None:
@@ -23,6 +25,26 @@ def filter_by_state(data: Iterable[dict], state: str = "EXECUTED") -> Iterable[d
     return to_return
 
 
+def filter_by_description(data: list[dict], incl: str) -> list[dict]:
+    """Returns selected data as list of dictionaries
+    which 'description' option contains incl string as a substring;
+    case doesn't matter
+
+    :param data: list of dictionaries
+    :param incl: string needs to be included
+    :return: filtered list of dictionaries"""
+    if not isinstance(incl, str) or not isinstance(data, list):
+        raise ValueError
+    to_return = []
+    for elem in data:
+        check = extract(elem, ("description",))
+        if isinstance(check, str):
+            check = check.lower().strip()
+            if incl.lower().strip() in check:
+                to_return.append(elem)
+    return to_return
+
+
 def sort_by_date(data: Iterable[dict], reverse: bool = True) -> Iterable[dict] | None:
     """Returns data as list of dictionaries
     ordered by its date and time, descending by default,
@@ -31,11 +53,11 @@ def sort_by_date(data: Iterable[dict], reverse: bool = True) -> Iterable[dict] |
     :param data: list of dictionaries with operations
     :param reverse: boolean, default: True (descending)
     :return: ordered by date and time list of dictionaries with operations"""
-    if not isinstance(data, list) or not isinstance(reverse, bool):
-        return None
-    for item in data:
-        if not isinstance(item, dict) or "date" not in item.keys() or get_date(item["date"]) is None:
-            return None
+    # if not isinstance(data, list) or not isinstance(reverse, bool):
+    #     return None
+    # for item in data:
+    #     if not isinstance(item, dict) or "date" not in item.keys() or get_date(item["date"]) is None:
+    #         return None
     # calling get_date() here is for right type of date and time checking
-    dict_date = lambda elem: elem["date"]
+    dict_date = lambda elem: extract(elem, ("date",)) if isinstance(extract(elem, ("date",)), str) else ''
     return sorted(data, key=dict_date, reverse=reverse)

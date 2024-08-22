@@ -1,6 +1,7 @@
 import pandas as pd
 
 from src.loggers import create_basic_logger
+from src.utils import read_json_local
 
 logger = create_basic_logger(__name__)
 
@@ -41,6 +42,8 @@ def file_to_list(path: str) -> list[dict]:
         return xlsx_to_list(path)
     elif path.endswith(".csv"):
         return csv_to_list(path)
+    elif path.endswith(".json"):
+        return read_json_local(path)
     else:
         logger.error(f"{path} file extension not supported")
         return []
