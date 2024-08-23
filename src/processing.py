@@ -1,5 +1,4 @@
-import re
-
+from collections import Counter
 from typing import Iterable
 
 from src.tools import extract
@@ -59,5 +58,18 @@ def sort_by_date(data: Iterable[dict], reverse: bool = True) -> Iterable[dict] |
     #     if not isinstance(item, dict) or "date" not in item.keys() or get_date(item["date"]) is None:
     #         return None
     # calling get_date() here is for right type of date and time checking
-    dict_date = lambda elem: extract(elem, ("date",)) if isinstance(extract(elem, ("date",)), str) else ''
+    dict_date = lambda elem: extract(elem, ("date",)) if isinstance(extract(elem, ("date",)), str) else ""
     return sorted(data, key=dict_date, reverse=reverse)
+
+
+def count_by_categories(data: list[dict]) -> dict[str, int]:
+    """Counts categories in transactions
+
+    :param data: transactions in list of dictionaries
+    :return: dictionary in {category: number of transactions} formatted"""
+    to_count = [
+        extract(t, ("description",)) if isinstance(extract(t, ("description",)), str) else "Описание отсутствует"
+        for t in data
+    ]
+    counter = Counter(to_count)
+    return dict(counter)

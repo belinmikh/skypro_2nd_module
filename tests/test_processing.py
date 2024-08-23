@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.processing import filter_by_state, sort_by_date
+from src.processing import count_by_categories, filter_by_state, sort_by_date
 
 nonsense_as_arr = [None, 123, 1.2, "123", "bimbim", "bambam", "1234567123567123567123567123567123567123567"]
 
@@ -142,3 +142,15 @@ def test_sort_by_date_default(test_input: Any, expected_result: Any) -> None:
 )
 def test_sort_by_date_with_parameter(test_input: Any, additional_parameter: Any, expected_result: Any) -> None:
     assert sort_by_date(test_input, reverse=additional_parameter) == expected_result
+
+
+def test_count_by_categories(json_alike: Any) -> None:
+    assert count_by_categories(json_alike) == {
+        "Перевод организации": 40,
+        "Открытие вклада": 10,
+        "Перевод со счета на счет": 15,
+        "Перевод с карты на карту": 19,
+        "Перевод с карты на счет": 16,
+        "Описание отсутствует": 1,
+    }
+    assert count_by_categories([]) == {}

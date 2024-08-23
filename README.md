@@ -1,7 +1,13 @@
 # **WIDGET FOR SHOWING LAST FEW SUCCEED TRANSACTIONS** 
 
+## version 10.1:
+
+    > count_by_categories function created in processing
+        using Counter from collections
+
 ## version 10.0:
     
+    > filter_by_description function created in processing
     > main logic created using tkinter
 
 # Scroll through the commands to read the description of previous versions

@@ -1,5 +1,5 @@
-import os
 import logging
+import os
 
 
 def create_basic_logger(name: str) -> logging.Logger:
@@ -18,8 +18,8 @@ def create_basic_logger(name: str) -> logging.Logger:
         else:
             break
 
-    if not os.path.exists('logs'):
-        os.makedirs('logs')
+    if not os.path.exists("logs"):
+        os.makedirs("logs")
 
     with open(f"logs/{name_file}.log", "w"):
         pass

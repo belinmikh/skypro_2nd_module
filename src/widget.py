@@ -1,13 +1,6 @@
 from src.masks import get_mask_account, get_mask_card_number
 
-CARDS = [
-    "Visa Platinum",
-    "Maestro",
-    "Discover",
-    "Visa",
-    "American Express",
-    "Mastercard"
-]
+CARDS = ["Visa Platinum", "Maestro", "Discover", "Visa", "American Express", "Mastercard"]
 ACCOUNTS = ["Счет", "Счёт"]
 # Well I'm sorry I just like 'ё', couldn't resist it
 
@@ -59,11 +52,7 @@ def get_date(date: str) -> str | None:
         and date[13] == ":"
         and date[16] == ":"
         and date[19] == "."
-        and date.replace("-", "")
-            .replace("T", "")
-            .replace(":", "")
-            .replace(".", "")
-            .isdigit()
+        and date.replace("-", "").replace("T", "").replace(":", "").replace(".", "").isdigit()
     ):
         return date[8:10] + "." + date[5:7] + "." + date[0:4]
     else:
