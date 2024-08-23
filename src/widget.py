@@ -1,6 +1,6 @@
 from src.masks import get_mask_account, get_mask_card_number
 
-CARDS = ["Visa Platinum", "Maestro"]
+CARDS = ["Visa Platinum", "Maestro", "Discover", "Visa", "American Express", "Mastercard"]
 ACCOUNTS = ["Счет", "Счёт"]
 # Well I'm sorry I just like 'ё', couldn't resist it
 

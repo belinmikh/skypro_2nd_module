@@ -42,7 +42,8 @@ def get_rub_amount(data: dict) -> float:
             "code",
         ),
     )
-
+    if not cur:
+        cur = extract(data, ("currency_code",))
     amount = extract(
         data,
         (
@@ -50,21 +51,27 @@ def get_rub_amount(data: dict) -> float:
             "amount",
         ),
     )
-    amount = float(amount)
+    if not amount:
+        amount = extract(data, ("amount",))
 
-    if cur == "RUB":
-        logger.debug("Currency is already RUB")
-        logger.info("Amount extracted")
-        return amount
+    if amount and cur:
+        amount = float(amount)
+
+        if cur == "RUB":
+            logger.debug("Currency is already RUB")
+            logger.info("Amount extracted")
+            return amount
+        else:
+            try:
+                date = extract(data, ("date",))
+                date = date[:10]
+                to_return = convert_to_rub(amount, cur, date)
+                logger.info("Currency has been converted")
+                return to_return
+            except Exception as ex:
+                # don't sure it should be that way,
+                # but for now I decide to just throw it up
+                logger.error("Caught {ex} during currency converting")
+                raise ex
     else:
-        try:
-            date = extract(data, ("date",))
-            date = date[:10]
-            to_return = convert_to_rub(amount, cur, date)
-            logger.info("Currency has been converted")
-            return to_return
-        except Exception as ex:
-            # don't sure it should be that way,
-            # but for now I decide to just throw it up
-            logger.error("Caught {ex} during currency converting")
-            raise ex
+        raise ValueError

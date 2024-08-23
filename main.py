@@ -4,6 +4,7 @@ from typing import Any, Callable, Iterable
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
+from src.ui import provide_ui
 from src.widget import get_date, mask_account_card
 
 
@@ -40,6 +41,10 @@ def print_iterable(obj: Any, pred: str = "") -> None:
 
 
 def main() -> None:
+
+    if len(sys.argv) == 1:
+        provide_ui()
+
     if len(sys.argv) in [2, 3] and sys.argv[1] == "v5.0":
         if len(sys.argv) == 3 and sys.argv[2] not in [
             "card_number_generator",
